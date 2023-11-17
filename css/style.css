@@ -55,6 +55,7 @@ body {
   border: none;
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
   font-size: 16px;
+  cursor: pointer;
 }
 
 .titlefonctionnement {
@@ -107,13 +108,16 @@ body {
 
 .restaurant {
   background-color: #f6f6f6;
-  padding: 3% 10% 0% 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .restaurant .imgrestaurants {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 5%;
   object-fit: cover;
+  max-width: 1055px;
 }
 .restaurant .image1,
 .restaurant .image2,
@@ -123,6 +127,7 @@ body {
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   margin-top: 20px;
+  position: relative;
 }
 .restaurant .imgpalette {
   object-fit: cover;
@@ -132,6 +137,30 @@ body {
 }
 .restaurant .txtimg {
   padding: 5%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.restaurant .txtimg .checkbox-coeur {
+  width: 23px;
+  height: 21px;
+}
+.restaurant .txtimg .checkbox-coeur input {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  width: 23px;
+  height: 21px;
+  margin: 0px;
+}
+.restaurant .txtimg .checkbox-coeur .coeurose {
+  display: none;
+}
+.restaurant .txtimg .checkbox-coeur input:checked + div .coeurose {
+  display: block;
+}
+.restaurant .txtimg .checkbox-coeur input:checked + div .coeurvide {
+  display: none;
 }
 .restaurant .titreimg {
   font-size: 18px;
@@ -140,6 +169,18 @@ body {
 .restaurant .soustitreimg {
   font-size: 17px;
   font-weight: 300;
+}
+
+.nouveau {
+  background-color: #99e2d0;
+  color: #008766;
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  padding: 5px;
+  margin: 15px;
+  right: 0;
+  top: 0;
 }
 
 footer {
@@ -183,7 +224,6 @@ footer img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f6f6f6;
   padding-top: 30px;
 }
 
@@ -195,11 +235,36 @@ footer img {
   flex-direction: column;
   border-radius: 60px 60px 0px 0px;
   padding: 5% 10%;
+  position: relative;
 }
 .fondmenu .titlelike {
-  display: flex;
-  gap: 20px;
   align-items: center;
+  display: flex;
+  position: relative;
+}
+.fondmenu .titlelike h2 {
+  margin-right: 45px;
+}
+.fondmenu .titlelike .checkbox-coeur {
+  width: 23px;
+  height: 21px;
+}
+.fondmenu .titlelike .checkbox-coeur input {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  width: 23px;
+  height: 21px;
+  margin: 0px;
+}
+.fondmenu .titlelike .checkbox-coeur .coeurose {
+  display: none;
+}
+.fondmenu .titlelike .checkbox-coeur input:checked + div .coeurose {
+  display: block;
+}
+.fondmenu .titlelike .checkbox-coeur input:checked + div .coeurvide {
+  display: none;
 }
 .fondmenu h2 {
   font-family: "Shrikhand", serif;
@@ -216,6 +281,7 @@ footer img {
 .fondmenu .desserts h3 {
   border-bottom: 2px solid #99e2d0;
   padding-bottom: 5px;
+  font-weight: 300;
   width: 30px;
   font-size: 16px;
   text-transform: uppercase;
@@ -223,7 +289,6 @@ footer img {
 
 .choix {
   background-color: white;
-  padding: 15px;
   border-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -232,6 +297,47 @@ footer img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  padding: 15px;
+}
+.choix .lebloc:hover span {
+  transform: translateX(calc(-100% - 25px));
+}
+.choix .lebloc span {
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  right: 0;
+  transition: transform 400ms;
+}
+.choix .lebloc:hover .bglogovalider {
+  transform: none;
+}
+.choix .lebloc .bglogovalider {
+  background-color: #99e2d0;
+  position: absolute;
+  width: 60px;
+  height: 72px;
+  right: 0;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 400ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 15px 15px 0px;
+}
+.choix .lebloc .bglogovalider .logovalider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 5%;
+  background-color: #fff;
+}
+.choix .lebloc .bglogovalider .logovalider svg {
+  fill: #99e2d0;
 }
 .choix .lebloc .titremenu {
   font-size: 18px;
@@ -242,10 +348,6 @@ footer img {
   font-weight: 300;
   margin-top: 2px;
   margin-bottom: 0px;
-}
-.choix .lebloc span {
-  font-size: 18px;
-  font-weight: 500;
 }
 
 /*Media queries*/
