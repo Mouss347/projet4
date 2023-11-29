@@ -1,11 +1,11 @@
-/*MIXIN*/
+/**********************************************************MIXIN**********************************************************/
 @mixin centrer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/*VARIABLES*/
+/******************************************************VARIABLES**********************************************************/
 $colorbtn: linear-gradient(to top, #9356dc, #ff79da);
 $bggris: #f6f6f6;
 $animationcolor: #99e2d0;
@@ -24,7 +24,6 @@ header {
 body {
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
-  max-width: 1055px;
 }
 .textlocalisation {
   @include centrer;
@@ -35,11 +34,17 @@ body {
   }
 }
 .principal1 {
-  @include centrer;
-  flex-direction: column;
+  
   background-color: $bggris;
   padding-top: 40px;
   padding-bottom: 40px;
+
+     .section_content {
+        max-width: 1011px;
+        margin: auto;
+        @include centrer;
+        flex-direction: column;
+  }
 
   h1 {
     font-size: 40px;
@@ -66,6 +71,11 @@ body {
 }
 .titlefonctionnement {
   padding: 30px 80px;
+
+  .section_fonctionement {
+    max-width: 1011px;
+    margin: auto;
+  }
 
   h2 {
     margin-top: 0px;
@@ -109,6 +119,11 @@ body {
 .restaurant {
   background-color: $bggris;
   padding: 10px 70px;
+
+  .section_restaurant {
+    max-width: 1011px;
+    margin: auto;
+  }
 
   .imgrestaurants {
     display: grid;
@@ -209,7 +224,7 @@ footer {
   }
 }
 
-/*PAGE 2*/
+/****************************************PAGE 2*******************************************/
 .goback {
   position: absolute;
   left: 0;
@@ -368,7 +383,7 @@ footer {
   }
 }
 
-/*Media queries*/
+/*********************************Media queries***************************************/
 @media screen and (max-width: 768px) {
   .principal1 {
     display: flex;
